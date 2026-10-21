@@ -213,6 +213,78 @@ export default function Join() {
         </div>
       </section>
 
+      
+      <section className="lions-membership-faq" id="membership-faq">
+        <div className="wrap">
+          <div className="lions-faq-heading">
+            <p className="join-overline">MEMBERSHIP QUESTIONS</p>
+            <h2>Frequently asked questions.</h2>
+            <p>Interested in becoming a Lion? Here's how to get started.</p>
+          </div>
+
+          <div className="lions-faq-list">
+            <details>
+              <summary>Do I have to become a member to volunteer?</summary>
+              <p>
+                No. Some club-organized service opportunities may welcome
+                nonmembers. Contact us to learn which activities are open
+                to community volunteers.
+              </p>
+            </details>
+
+            <details>
+              <summary>How do I become a member?</summary>
+              <p>
+                Start by contacting the club through the inquiry form.
+                We can explain the membership process, answer your questions,
+                and help you connect with current members.
+              </p>
+            </details>
+
+            <details>
+              <summary>Are there membership dues?</summary>
+              <p>
+                Lions membership generally involves dues. The exact local
+                amount and any applicable fees should be confirmed with
+                club leadership before you join.
+              </p>
+            </details>
+
+            <details>
+              <summary>When and where does the club meet?</summary>
+              <p>
+                Contact the club for current meeting arrangements.
+                Public meeting times and locations will be posted once
+                they have been confirmed.
+              </p>
+            </details>
+
+            <details>
+              <summary>How much time do members need to commit?</summary>
+              <p>
+                Members participate according to club expectations and
+                their availability. Ask us about meetings, volunteer projects,
+                and realistic ways to contribute.
+              </p>
+            </details>
+
+            <details>
+              <summary>Can I suggest a project or ask for assistance?</summary>
+              <p>
+                Yes. Residents can submit project ideas, and local
+                organizations can request volunteer help for club review.
+                Acceptance depends on available members and resources.
+              </p>
+              <p>
+                <Link href="/suggest-project">Suggest a project</Link>
+                {' · '}
+                <Link href="/community-needs">Request volunteer help</Link>
+              </p>
+            </details>
+          </div>
+        </div>
+      </section>
+
       <section className="join-ending">
         <div className="wrap join-ending-inner">
           <div>

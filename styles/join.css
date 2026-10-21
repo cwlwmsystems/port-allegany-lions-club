@@ -671,3 +671,100 @@
     font-size: 13px;
   }
 }
+
+
+/* LIONS MEMBERSHIP FAQ V1 */
+
+.lions-membership-faq {
+  padding:66px 0 73px;
+  background:#f3f7fb;
+}
+.lions-faq-heading {
+  max-width:680px;
+  margin-bottom:29px;
+}
+.lions-faq-heading h2 {
+  color:#0d2240;
+  font-size:clamp(32px,3.5vw,48px);
+  margin:0 0 13px;
+}
+.lions-faq-heading > p:last-child {
+  color:#5a7084;
+  font-size:15px;
+  line-height:1.6;
+}
+.lions-faq-list {
+  max-width:950px;
+  border-top:1px solid #d3dfeb;
+}
+.lions-faq-list details {
+  border-bottom:1px solid #d3dfeb;
+  background:#fff;
+}
+.lions-faq-list summary {
+  position:relative;
+  cursor:pointer;
+  color:#0d2240;
+  padding:20px 50px 20px 22px;
+  font-size:16px;
+  font-weight:800;
+  list-style:none;
+}
+.lions-faq-list summary::-webkit-details-marker {
+  display:none;
+}
+.lions-faq-list summary::after {
+  content:'+';
+  position:absolute;
+  right:22px;
+  top:15px;
+  font-size:26px;
+  color:#00338d;
+}
+.lions-faq-list details[open] summary::after {
+  content:'−';
+}
+.lions-faq-list summary:focus-visible {
+  outline:3px solid #ebb700;
+  outline-offset:-3px;
+}
+.lions-faq-list details > p {
+  max-width:800px;
+  color:#566d83;
+  font-size:14px;
+  line-height:1.65;
+  padding:0 22px 18px;
+  margin:0;
+}
+.lions-faq-list details p a {
+  color:#00338d;
+  font-weight:800;
+  text-decoration:underline;
+}
+@media(max-width:767px) {
+  .lions-membership-faq {
+    padding:37px 0 42px;
+  }
+  .lions-faq-heading {
+    margin-bottom:19px;
+  }
+  .lions-faq-heading h2 {
+    font-size:30px;
+  }
+  .lions-faq-heading > p:last-child {
+    font-size:13px;
+  }
+  .lions-faq-list summary {
+    padding:16px 43px 16px 15px;
+    font-size:14px;
+    line-height:1.4;
+  }
+  .lions-faq-list summary::after {
+    right:15px;
+    top:10px;
+  }
+  .lions-faq-list details > p {
+    padding:0 15px 16px;
+    font-size:12px;
+  }
+}

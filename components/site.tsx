@@ -133,6 +133,8 @@ export function Footer() {
               <Link href="/events">Events</Link>
               <Link href="/impact">Our Impact</Link>
               <Link href="/join">Get Involved</Link>
+              <Link href="/community-needs">Community Needs</Link>
+              <Link href="/suggest-project">Suggest a Project</Link>
               <Link href="/contact">Contact</Link>
             </div>
             {club.socialUrl && (
