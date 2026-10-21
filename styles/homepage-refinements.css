@@ -1,0 +1,448 @@
+/* STEP 9: REFINED SERVICE CARDS */
+
+.fb-service-grid {
+  gap: 28px;
+}
+
+.fb-service {
+  overflow: hidden;
+  border: 1px solid #e6ebf2;
+  border-radius: 12px;
+  box-shadow: 0 12px 35px rgba(13, 34, 64, 0.07);
+  transition:
+    transform 300ms ease,
+    box-shadow 300ms ease;
+}
+
+.fb-service:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 22px 55px rgba(13, 34, 64, 0.15);
+}
+
+.fb-service-photo {
+  height: 255px;
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  transition: background-size 400ms ease;
+}
+
+.fb-service-photo::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    transparent 55%,
+    rgba(13, 34, 64, 0.32) 100%
+  );
+}
+
+.fb-service-icon {
+  top: 224px;
+  left: 28px;
+  width: 60px;
+  height: 60px;
+  border-radius: 12px;
+  background: #ebb700;
+  box-shadow: 0 8px 20px rgba(13, 34, 64, 0.13);
+  transition: transform 300ms ease;
+}
+
+.fb-service:hover .fb-service-icon {
+  transform: translateY(-4px);
+}
+
+.fb-service-copy {
+  padding: 49px 30px 34px;
+}
+
+.fb-service-copy p {
+  margin-bottom: 15px;
+  color: #00338d;
+  font-size: 11px;
+  letter-spacing: 0.16em;
+}
+
+.fb-service-copy h3 {
+  font-size: clamp(23px, 2.1vw, 29px);
+  line-height: 1.2;
+  margin-bottom: 23px;
+  letter-spacing: -0.035em;
+}
+
+.fb-service-copy span {
+  gap: 12px;
+  font-size: 13px;
+  border-bottom: 2px solid transparent;
+  transition: gap 250ms ease;
+}
+
+.fb-service:hover .fb-service-copy span {
+  gap: 19px;
+}
+
+@media (max-width: 900px) {
+  .fb-service-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 620px) {
+  .fb-service-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .fb-service-photo {
+    height: 240px;
+  }
+
+  .fb-service-icon {
+    top: 209px;
+  }
+
+  .fb-service-copy {
+    padding: 48px 25px 30px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fb-service,
+  .fb-service-photo,
+  .fb-service-icon,
+  .fb-service-copy span {
+    transition: none;
+  }
+}
+
+
+/* STEP 10: REFINED ABOUT SECTION */
+
+.fb-about-band {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 650px;
+  overflow: hidden;
+}
+
+.fb-about-image {
+  position: relative;
+  min-height: 650px;
+  background-image: url('/images/team.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+.fb-about-image::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(13, 34, 64, 0.08),
+    rgba(13, 34, 64, 0.28)
+  );
+  pointer-events: none;
+}
+
+.fb-about-content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 90px clamp(40px, 6vw, 115px);
+  background: linear-gradient(
+    145deg,
+    #00338d 0%,
+    #0d2240 100%
+  );
+  color: #fff;
+}
+
+.fb-about-content::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100px;
+  height: 6px;
+  background: #ebb700;
+}
+
+.fb-about-content .fb-overline {
+  color: #ebb700;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.19em;
+  margin-bottom: 26px;
+}
+
+.fb-about-content h2 {
+  max-width: 650px;
+  color: #fff;
+  font-size: clamp(42px, 4.5vw, 72px);
+  line-height: 1.04;
+  letter-spacing: -0.05em;
+  margin-bottom: 30px;
+}
+
+.fb-about-content h2 span {
+  color: #ebb700;
+}
+
+.fb-about-content > p:not(.fb-overline) {
+  max-width: 510px;
+  color: #e5ebf5;
+  font-size: 17px;
+  line-height: 1.85;
+  margin-bottom: 25px;
+}
+
+.fb-about-content .fb-primary {
+  align-self: flex-start;
+  margin-top: 12px;
+  padding: 17px 28px;
+  border-radius: 5px;
+  background: #ebb700;
+  color: #0d2240;
+}
+
+.fb-about-content .fb-primary:hover {
+  background: #f4c62b;
+}
+
+.fb-about-tag {
+  margin-top: 65px;
+  padding-top: 25px;
+  border-top: 1px solid rgba(255,255,255,0.2);
+  color: #c4d5eb;
+  font-size: 11px;
+  letter-spacing: 0.15em;
+}
+
+@media (max-width: 900px) {
+  .fb-about-band {
+    grid-template-columns: 1fr;
+  }
+
+  .fb-about-image {
+    min-height: 440px;
+  }
+
+  .fb-about-content {
+    padding: 70px 7%;
+  }
+}
+
+@media (max-width: 600px) {
+  .fb-about-image {
+    min-height: 320px;
+  }
+
+  .fb-about-content {
+    padding: 60px 25px;
+  }
+
+  .fb-about-content h2 {
+    font-size: clamp(38px, 10vw, 52px);
+  }
+
+  .fb-about-content > p:not(.fb-overline) {
+    font-size: 16px;
+  }
+
+  .fb-about-tag {
+    margin-top: 45px;
+  }
+}
+
+
+/* STEP 11: EVENTS REDESIGN */
+
+.fb-events-redesign {
+  background: #f4f7fb;
+  overflow: hidden;
+}
+
+.fb-events-layout {
+  display: grid;
+  grid-template-columns: 46% 54%;
+  min-height: 690px;
+}
+
+.fb-events-photo {
+  position: relative;
+  min-height: 690px;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(13,34,64,0) 48%,
+      rgba(13,34,64,.72) 100%
+    ),
+    url('/images/events-community.jpg') center/cover no-repeat;
+}
+
+.fb-events-photo-label {
+  position: absolute;
+  bottom: 52px;
+  left: clamp(30px, 5vw, 100px);
+  right: 30px;
+  color: white;
+}
+
+.fb-events-photo-label span {
+  display: block;
+  color: #ebb700;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: .2em;
+  margin-bottom: 12px;
+}
+
+.fb-events-photo-label strong {
+  display: block;
+  font-size: clamp(30px, 3vw, 48px);
+  line-height: 1.1;
+}
+
+.fb-events-content {
+  display: flex;
+  align-items: center;
+  padding: 80px clamp(35px, 6vw, 110px);
+}
+
+.fb-events-content-inner {
+  width: 100%;
+  max-width: 670px;
+}
+
+.fb-events-content h2 {
+  font-size: clamp(38px, 4.4vw, 68px);
+  line-height: 1.08;
+  letter-spacing: -.05em;
+  margin-bottom: 26px;
+  color: #0d2240;
+}
+
+.fb-events-content h2 span {
+  color: #00338d;
+}
+
+.fb-events-description {
+  max-width: 540px;
+  color: #596b7d;
+  font-size: 17px;
+  line-height: 1.85;
+  margin-bottom: 32px;
+}
+
+.fb-events-content .fb-primary {
+  display: inline-flex;
+  border-radius: 5px;
+}
+
+.fb-events-divider {
+  height: 1px;
+  width: 100%;
+  background: #d7e0eb;
+  margin: 46px 0 32px;
+}
+
+.fb-events-calendar {
+  display: flex;
+  align-items: flex-start;
+  gap: 22px;
+}
+
+.fb-events-calendar-icon {
+  width: 60px;
+  height: 60px;
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  background: #00338d;
+  color: white;
+  border-radius: 8px;
+}
+
+.fb-events-calendar h3 {
+  color: #0d2240;
+  font-size: 24px;
+  margin: 0 0 10px;
+}
+
+.fb-events-calendar p {
+  color: #617082;
+  font-size: 15px;
+  line-height: 1.7;
+  margin: 0 0 14px;
+}
+
+.fb-events-calendar a {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: #00338d;
+  font-weight: 800;
+  font-size: 13px;
+}
+
+@media (max-width: 1050px) {
+  .fb-events-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .fb-events-photo {
+    min-height: 420px;
+  }
+
+  .fb-events-content {
+    padding: 75px 7%;
+  }
+}
+
+@media (max-width: 600px) {
+  .fb-events-photo {
+    min-height: 310px;
+  }
+
+  .fb-events-photo-label {
+    bottom: 30px;
+    left: 25px;
+  }
+
+  .fb-events-content {
+    padding: 60px 25px;
+  }
+
+  .fb-events-calendar {
+    gap: 15px;
+  }
+
+  .fb-events-calendar-icon {
+    width: 48px;
+    height: 48px;
+  }
+}
+
+/* STEP 12A: MEMBERSHIP BANNER FINISH */
+
+.fb-join-banner .fb-overline::after {
+  content: "";
+  display: block;
+  width: 65px;
+  height: 4px;
+  margin-top: 18px;
+  background: #ebb700;
+}
+
+.fb-join-actions .fb-primary {
+  transition: background 250ms ease, transform 250ms ease;
+}
+
+.fb-join-actions .fb-primary:hover {
+  background: #ffd13e;
+  transform: translateY(-3px);
+}
+
+

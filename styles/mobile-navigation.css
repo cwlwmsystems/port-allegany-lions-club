@@ -1,0 +1,126 @@
+/* PORT ALLEGANY - RESPONSIVE NAVIGATION */
+
+.mobile-ready-header {
+  position: relative;
+  z-index: 100;
+}
+
+.mobile-ready-header .mobile-nav {
+  display: none;
+}
+
+@media (max-width: 1023px) {
+  .mobile-ready-header .desktop-nav {
+    display: none !important;
+  }
+
+  .mobile-ready-header .mobile-toggle {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    width: 46px;
+    height: 46px;
+    flex-shrink: 0;
+    color: #0d2240;
+    border: 1px solid #dce5ee;
+    background: #fff;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+
+  .mobile-ready-header .mobile-nav {
+    display: none !important;
+  }
+
+  .mobile-ready-header .mobile-nav.mobile-nav-open {
+    display: flex !important;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: #fff;
+    border-top: 1px solid #e4eaf0;
+    box-shadow: 0 18px 35px rgba(7,27,55,.16);
+    padding: 12px max(22px, 5vw) 24px;
+  }
+
+  .mobile-ready-header .mobile-nav a {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 56px;
+    gap: 20px;
+    border-bottom: 1px solid #e8edf3;
+    color: #0d2240;
+    font-weight: 800;
+    font-size: 15px;
+    padding: 15px 4px;
+  }
+
+  .mobile-ready-header .mobile-nav a svg {
+    color: #00338d;
+  }
+
+  .mobile-ready-header .mobile-nav a:last-child {
+    color: #00338d;
+    border-bottom: 0;
+  }
+
+  .mobile-ready-header .mobile-toggle:focus-visible,
+  .mobile-ready-header .mobile-nav a:focus-visible {
+    outline: 3px solid #ebb700;
+    outline-offset: 3px;
+  }
+}
+
+@media (max-width: 390px) {
+  .mobile-ready-header .brand-copy strong {
+    font-size: 12px !important;
+  }
+
+  .mobile-ready-header .brand-copy small {
+    font-size: 8px;
+  }
+
+  .mobile-ready-header .brand-symbol {
+    width: 42px;
+    height: 42px;
+  }
+
+  .mobile-ready-header .brand {
+    gap: 10px;
+    min-width: 0;
+  }
+}
+
+
+/* Mobile navigation outside-click dismissal */
+
+.mobile-menu-backdrop {
+  display: none;
+}
+
+@media (max-width: 1023px) {
+  .mobile-ready-header .nav-wrap {
+    position: relative;
+    z-index: 3;
+  }
+
+  .mobile-ready-header .mobile-menu-backdrop {
+    display: block;
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100dvh;
+    padding: 0;
+    border: 0;
+    background: rgba(7, 22, 43, 0.24);
+    cursor: default;
+    z-index: 1;
+  }
+
+  .mobile-ready-header .mobile-nav.mobile-nav-open {
+    z-index: 2;
+  }
+}

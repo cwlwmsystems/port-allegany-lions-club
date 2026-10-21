@@ -1,0 +1,11 @@
+.env.local
+node_modules/
+.next/
+.env
+.env.*
+!.env.example
+*.bak
+*.log
+*.tar.gz
+mobile-pages-review.txt
+.DS_Store

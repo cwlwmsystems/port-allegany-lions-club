@@ -1,0 +1,94 @@
+/* STEP 13: PROFESSIONAL FOOTER */
+
+.footer-redesigned {
+  background: #091a33 !important;
+  color: #fff;
+  padding: 90px 0 26px;
+}
+
+.footer-identity-link {
+  display: flex;
+  align-items: center;
+  gap: 19px;
+}
+
+.footer-logo {
+  width: 90px;
+  height: 90px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.footer-identity-name {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.footer-identity-name strong {
+  color: #fff;
+  font-size: clamp(18px, 1.8vw, 25px);
+  line-height: 1.1;
+}
+
+.footer-identity-name span {
+  color: #ebb700;
+  font-size: clamp(19px, 2vw, 27px);
+  font-weight: 800;
+  line-height: 1.1;
+}
+
+.footer-identity > p {
+  max-width: 335px;
+  color: #bac9da;
+  font-size: 14px;
+  line-height: 1.85;
+  margin: 25px 0 15px;
+}
+
+.footer-location {
+  color: #94b1d2;
+  font-size: 12px;
+  letter-spacing: .04em;
+}
+
+.footer-redesigned .footer-bottom {
+  border-top: 1px solid rgba(255,255,255,.18);
+  padding-top: 26px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  color: #9bb3ce;
+  font-size: 12px;
+}
+
+@media (max-width: 950px) {
+
+  .footer-identity {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 620px) {
+  .footer-redesigned {
+    padding: 65px 0 25px;
+  }
+
+  .footer-identity {
+    grid-column: auto;
+  }
+
+  .footer-logo {
+    width: 72px;
+    height: 72px;
+  }
+
+  .footer-redesigned .footer-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    line-height: 1.7;
+  }
+}
+
+

@@ -1,0 +1,506 @@
+
+/*
+ * PORT ALLEGANY LIONS CLUB
+ * Mobile homepage — consolidated responsive layout
+ * Desktop styles remain unchanged.
+ */
+
+@media (max-width: 767px) {
+
+  /* GENERAL */
+
+  .fb-hero,
+  .fb-statement,
+  .fb-serve,
+  .fb-about-band,
+  .fb-events-redesign,
+  .fb-join-banner {
+    overflow-wrap: break-word;
+  }
+
+  .fb-hero .wrap,
+  .fb-statement .wrap,
+  .fb-serve .wrap,
+  .fb-join-banner .wrap {
+    padding-inline: 22px;
+  }
+
+  .fb-overline {
+    font-size: 10px;
+    line-height: 1.4;
+    letter-spacing: .12em;
+  }
+
+  /* HERO: shorter, balanced, visible photography */
+
+  .fb-hero {
+    position: relative;
+    min-height: 0 !important;
+    isolation: isolate;
+  }
+
+  .fb-hero-grid {
+    display: flex !important;
+    min-height: 0 !important;
+    align-items: center;
+  }
+
+  .fb-hero-copy {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 100%;
+    padding: 42px 0 45px !important;
+  }
+
+  .fb-kicker {
+    font-size: 9px !important;
+    letter-spacing: .11em;
+    line-height: 1.5;
+    margin-bottom: 16px;
+  }
+
+  .fb-hero h1 {
+    font-size: clamp(37px, 9.4vw, 46px) !important;
+    line-height: 1.04 !important;
+    letter-spacing: -.045em;
+    margin: 0 0 18px !important;
+    max-width: 370px;
+  }
+
+  .fb-hero-sub {
+    max-width: 340px;
+    font-size: 14px !important;
+    line-height: 1.55;
+    margin: 0;
+  }
+
+  .fb-hero-photo {
+    inset: 0 !important;
+    opacity: .75 !important;
+    background-position: 58% center !important;
+    background-size: cover !important;
+  }
+
+  .fb-hero-overlay {
+    inset: 0 !important;
+    background: linear-gradient(
+      90deg,
+      rgba(7, 27, 56, .97) 0%,
+      rgba(9, 34, 70, .90) 56%,
+      rgba(9, 39, 83, .57) 100%
+    ) !important;
+  }
+
+  .fb-hero-feature {
+    display: none !important;
+  }
+
+  .fb-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 24px;
+  }
+
+  .fb-buttons a {
+    min-height: 44px;
+    justify-content: center;
+    font-size: 12px;
+    padding: 12px 14px;
+    white-space: nowrap;
+  }
+
+  .fb-buttons a svg {
+    width: 15px;
+    height: 15px;
+  }
+
+  .fb-hero-bottom {
+    position: relative !important;
+  }
+
+  .fb-bottom-inner {
+    min-height: 34px !important;
+    height: auto !important;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 9px;
+  }
+
+  .fb-bottom-inner > span:last-child {
+    display: none;
+  }
+
+  /* INTRO: eliminate desktop column gaps */
+
+  .fb-statement {
+    padding: 34px 0 36px !important;
+  }
+
+  .fb-statement-grid {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) !important;
+    gap: 13px !important;
+    align-items: start !important;
+  }
+
+  .fb-statement-grid > div {
+    min-width: 0;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  .fb-statement h2 {
+    font-size: clamp(29px, 7.6vw, 35px) !important;
+    line-height: 1.12 !important;
+    margin: 10px 0 0 !important;
+  }
+
+  .fb-statement-grid > div:last-child {
+    display: flex;
+    flex-direction: column;
+    gap: 11px;
+  }
+
+  .fb-statement-grid > div:last-child p {
+    margin: 0 !important;
+    font-size: 13px !important;
+    line-height: 1.58;
+  }
+
+  .fb-statement .fb-text-link {
+    margin-top: 4px;
+    font-size: 13px;
+  }
+
+  /* PHOTO MOSAIC: compact two-image editorial strip */
+
+  .fb-photo-mosaic {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    height: 145px !important;
+    gap: 4px;
+    overflow: hidden;
+  }
+
+  .fb-mosaic-img {
+    min-height: 145px;
+    min-width: 0;
+  }
+
+  .fb-mosaic-three {
+    display: none !important;
+  }
+
+  .fb-mosaic-img span {
+    left: 10px !important;
+    bottom: 10px !important;
+    font-size: 9px !important;
+    letter-spacing: .07em;
+  }
+
+  /* SERVICES: swipeable, visually complete cards */
+
+  .fb-serve {
+    padding: 38px 0 34px !important;
+  }
+
+  .fb-section-top {
+    display: block !important;
+    margin-bottom: 18px !important;
+  }
+
+  .fb-section-top h2 {
+    font-size: clamp(29px, 7.5vw, 36px) !important;
+    line-height: 1.12;
+    margin: 9px 0 0;
+  }
+
+  .fb-section-top > p {
+    font-size: 13px !important;
+    line-height: 1.55;
+    margin: 12px 0 0 !important;
+    max-width: 400px;
+  }
+
+  .fb-service-grid {
+    display: flex !important;
+    gap: 12px;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory;
+    scroll-padding-inline: 22px;
+    -webkit-overflow-scrolling: touch;
+    padding: 0 22px 12px;
+    margin: 0 -22px;
+    scrollbar-width: thin;
+  }
+
+  .fb-service {
+    flex: 0 0 min(75vw, 295px) !important;
+    min-width: 0 !important;
+    scroll-snap-align: start;
+    overflow: hidden;
+  }
+
+  .fb-service-photo {
+    height: 142px !important;
+    min-height: 142px !important;
+    background-position: center !important;
+    background-size: cover !important;
+  }
+
+  .fb-service-icon {
+    width: 42px !important;
+    height: 42px !important;
+    top: 120px !important;
+    left: 17px !important;
+  }
+
+  .fb-service-copy {
+    padding: 32px 17px 18px !important;
+  }
+
+  .fb-service-copy > p {
+    font-size: 9px;
+    margin-bottom: 8px;
+  }
+
+  .fb-service-copy h3 {
+    font-size: 19px !important;
+    line-height: 1.2;
+    min-height: 0 !important;
+    margin-bottom: 14px !important;
+  }
+
+  .fb-service-copy > span {
+    font-size: 12px;
+  }
+
+  .fb-art-note {
+    font-size: 10px;
+    line-height: 1.45;
+    margin-top: 10px;
+  }
+
+  /* ABOUT: image and copy without excessive vertical length */
+
+  .fb-about-band {
+    display: flex !important;
+    flex-direction: column !important;
+    min-height: 0 !important;
+  }
+
+  .fb-about-image {
+    width: 100% !important;
+    min-height: 165px !important;
+    height: 165px !important;
+    background-size: cover !important;
+    background-position: center !important;
+  }
+
+  .fb-about-content {
+    width: 100% !important;
+    padding: 29px 22px 30px !important;
+  }
+
+  .fb-about-content h2 {
+    font-size: clamp(29px, 7.5vw, 36px) !important;
+    line-height: 1.12;
+    margin: 10px 0 13px;
+  }
+
+  .fb-about-content > p:not(.fb-overline) {
+    font-size: 13px !important;
+    line-height: 1.56;
+    margin-bottom: 17px;
+  }
+
+  .fb-about-content .fb-primary {
+    min-height: 43px;
+    padding: 11px 16px;
+    font-size: 12px;
+  }
+
+  .fb-about-tag {
+    margin-top: 19px !important;
+    padding-top: 12px !important;
+    font-size: 9px;
+  }
+
+  /* EVENTS: bring information before decorative imagery */
+
+  .fb-events-layout {
+    display: flex !important;
+    flex-direction: column !important;
+    min-height: 0 !important;
+  }
+
+  .fb-events-content {
+    order: 1;
+    width: 100% !important;
+    padding: 32px 22px !important;
+  }
+
+  .fb-events-content-inner {
+    max-width: none !important;
+  }
+
+  .fb-events-content h2 {
+    font-size: clamp(29px, 7.4vw, 36px) !important;
+    line-height: 1.12;
+    margin: 10px 0 13px;
+  }
+
+  .fb-events-description {
+    font-size: 13px !important;
+    line-height: 1.55;
+    margin-bottom: 17px;
+  }
+
+  .fb-events-content .fb-primary {
+    min-height: 43px;
+    padding: 11px 16px;
+    font-size: 12px;
+  }
+
+  .fb-events-divider {
+    margin: 20px 0 15px !important;
+  }
+
+  .fb-events-calendar {
+    display: flex;
+    gap: 12px;
+    padding-top: 0 !important;
+  }
+
+  .fb-events-calendar-icon {
+    flex-shrink: 0;
+  }
+
+  .fb-events-calendar h3 {
+    font-size: 16px;
+  }
+
+  .fb-events-calendar p {
+    font-size: 12px;
+    line-height: 1.55;
+  }
+
+  .fb-events-calendar a {
+    font-size: 12px;
+  }
+
+  .fb-events-photo {
+    order: 2;
+    width: 100% !important;
+    min-height: 150px !important;
+    height: 150px !important;
+    background-position: center !important;
+    background-size: cover !important;
+  }
+
+  .fb-events-photo-label {
+    padding: 13px 17px;
+  }
+
+  .fb-events-photo-label strong {
+    font-size: 16px;
+  }
+
+  /* FINAL CTA */
+
+  .fb-join-banner {
+    min-height: 0 !important;
+    padding: 34px 0 !important;
+  }
+
+  .fb-join-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 18px !important;
+  }
+
+  .fb-join-banner h2 {
+    font-size: clamp(30px, 7.8vw, 38px) !important;
+    line-height: 1.1;
+    margin: 9px 0 12px !important;
+  }
+
+  .fb-join-banner p:not(.fb-overline) {
+    font-size: 13px !important;
+    line-height: 1.55;
+    margin-bottom: 0;
+  }
+
+  .fb-join-actions {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-width: 0 !important;
+    gap: 9px !important;
+  }
+
+  .fb-join-actions a {
+    display: flex;
+    width: 100% !important;
+    min-height: 44px !important;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    padding: 11px 15px;
+  }
+
+  /* FOOTER */
+
+  .footer-compact {
+    padding: 30px 0 17px !important;
+  }
+
+  .footer-compact-main {
+    gap: 19px !important;
+    padding-bottom: 19px !important;
+  }
+
+  .footer-compact .footer-bottom {
+    gap: 9px;
+    font-size: 10px;
+  }
+}
+
+/* VERY NARROW PHONES */
+
+@media (max-width: 359px) {
+  .fb-hero .wrap,
+  .fb-statement .wrap,
+  .fb-serve .wrap,
+  .fb-join-banner .wrap {
+    padding-inline: 16px;
+  }
+
+  .fb-hero h1 {
+    font-size: 34px !important;
+  }
+
+  .fb-buttons {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .fb-buttons a {
+    width: 100%;
+  }
+
+  .fb-service-grid {
+    margin-inline: -16px;
+    padding-inline: 16px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fb-service-grid {
+    scroll-behavior: auto;
+  }
+}

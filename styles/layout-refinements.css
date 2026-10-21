@@ -1,0 +1,241 @@
+/* STEP 14: COMPACT FULL-WIDTH DESIGN SYSTEM */
+
+/* Wider desktop layout with readable text */
+@media (min-width: 1100px) {
+  .wrap {
+    max-width: 1504px;
+    padding-left: clamp(40px, 4vw, 80px);
+    padding-right: clamp(40px, 4vw, 80px);
+  }
+}
+
+/* Consistent, controlled typography */
+.fb-statement h2,
+.fb-section-top h2,
+.fb-about-content h2,
+.fb-events-content h2,
+.fb-join-banner h2 {
+  font-size: clamp(36px, 3.5vw, 54px);
+  line-height: 1.12;
+  letter-spacing: -0.035em;
+}
+
+/* Reduce vertical spacing */
+.fb-statement {
+  padding: 75px 0;
+}
+
+.fb-statement-grid {
+  gap: 65px;
+}
+
+.fb-serve {
+  padding: 75px 0;
+}
+
+.fb-section-top {
+  margin-bottom: 34px;
+  gap: 45px;
+}
+
+/* Service cards */
+.fb-service-grid {
+  gap: 20px;
+}
+
+.fb-service-photo {
+  height: 210px;
+}
+
+.fb-service-icon {
+  top: 181px;
+  width: 56px;
+  height: 56px;
+}
+
+.fb-service-copy {
+  padding: 42px 25px 25px;
+}
+
+.fb-service-copy h3 {
+  font-size: clamp(22px, 1.7vw, 27px);
+  min-height: 0;
+  margin-bottom: 20px;
+}
+
+/* Compact photo mosaic */
+.fb-photo-mosaic {
+  height: 230px;
+}
+
+/* About split layout */
+.fb-about-band {
+  min-height: 475px;
+}
+
+.fb-about-image {
+  min-height: 475px;
+}
+
+.fb-about-content {
+  padding: 65px clamp(35px, 5vw, 80px);
+}
+
+.fb-about-content h2 {
+  margin-bottom: 22px;
+}
+
+.fb-about-content > p:not(.fb-overline) {
+  font-size: 16px;
+  line-height: 1.7;
+  margin-bottom: 16px;
+}
+
+.fb-about-tag {
+  margin-top: 38px;
+}
+
+/* Events split layout */
+.fb-events-layout {
+  min-height: 520px;
+}
+
+.fb-events-photo {
+  min-height: 520px;
+}
+
+.fb-events-content {
+  padding: 55px clamp(35px, 5vw, 80px);
+}
+
+.fb-events-content h2 {
+  margin-bottom: 20px;
+}
+
+.fb-events-description {
+  font-size: 16px;
+  line-height: 1.65;
+  margin-bottom: 23px;
+}
+
+.fb-events-divider {
+  margin: 28px 0 24px;
+}
+
+.fb-events-calendar h3 {
+  font-size: 21px;
+}
+
+.fb-events-calendar p {
+  font-size: 14px;
+}
+
+/* Membership banner */
+.fb-join-banner {
+  min-height: 310px;
+  padding: 60px 0;
+}
+
+.fb-join-banner h2 {
+  margin-bottom: 14px;
+}
+
+.fb-join-banner p:not(.fb-overline) {
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.fb-join-inner {
+  gap: 35px;
+}
+
+.fb-join-actions {
+  min-width: 230px;
+}
+
+.fb-join-actions .fb-primary,
+.fb-join-actions .fb-facebook {
+  min-height: 49px;
+  padding: 13px 19px;
+}
+
+/* Compact footer */
+.footer-redesigned {
+  padding: 48px 0 20px;
+}
+
+.footer-logo {
+  width: 60px;
+  height: 60px;
+}
+
+.footer-identity-name strong {
+  font-size: 18px;
+}
+
+.footer-identity-name span {
+  font-size: 20px;
+}
+
+.footer-identity > p {
+  margin: 15px 0 10px;
+  line-height: 1.6;
+}
+
+.footer-redesigned .footer-bottom {
+  padding-top: 17px;
+}
+
+/* Responsive: preserve readable layouts */
+@media (max-width: 1050px) {
+  .fb-about-image {
+    min-height: 360px;
+  }
+
+  .fb-events-photo {
+    min-height: 360px;
+  }
+
+  .footer-identity {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 620px) {
+  .fb-statement,
+  .fb-serve {
+    padding: 55px 0;
+  }
+
+  .fb-statement-grid {
+    gap: 25px;
+  }
+
+  .fb-photo-mosaic {
+    height: 170px;
+  }
+
+  .fb-about-image,
+  .fb-events-photo {
+    min-height: 290px;
+  }
+
+  .fb-about-content,
+  .fb-events-content {
+    padding: 45px 25px;
+  }
+
+  .fb-join-banner {
+    padding: 55px 0;
+  }
+
+  .footer-redesigned {
+    padding: 45px 0 20px;
+  }
+
+  .footer-identity {
+    grid-column: auto;
+  }
+}
+
+

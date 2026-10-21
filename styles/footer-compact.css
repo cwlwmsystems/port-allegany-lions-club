@@ -1,0 +1,75 @@
+/* STEP 15: COMPACT FOOTER */
+
+.footer-compact {
+  padding: 42px 0 18px !important;
+}
+
+.footer-compact-main {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 55px;
+  align-items: start;
+  padding-bottom: 35px;
+}
+
+.footer-compact .footer-logo {
+  width: 64px;
+  height: 64px;
+}
+
+.footer-compact .footer-identity > p {
+  max-width: 370px;
+  margin: 15px 0 0;
+  font-size: 13px;
+  line-height: 1.65;
+}
+
+.footer-compact-links h3 {
+  color: #ebb700;
+  font-size: 11px;
+  letter-spacing: .15em;
+  margin: 3px 0 17px;
+}
+
+.footer-compact-links > div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 24px;
+}
+
+.footer-compact-links a {
+  color: #d9e5f2;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.footer-compact-links a:hover {
+  color: #ebb700;
+}
+
+.footer-compact-links > a {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  margin-top: 20px;
+}
+
+.footer-compact .footer-bottom {
+  padding-top: 16px;
+}
+
+@media (max-width: 720px) {
+  .footer-compact-main {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  .footer-compact {
+    padding-top: 35px !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .footer-compact-links a {
+    transition: none;
+  }
+}
