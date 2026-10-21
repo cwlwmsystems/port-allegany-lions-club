@@ -103,7 +103,7 @@ export async function POST(req: Request) {
     name.length > 120 ||
     !email ||
     email.length > 200 ||
-    !/^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/.test(email) ||
+    !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) ||
     phone.length > 35 ||
     message.length > 2000 ||
     !VALID_INTERESTS.has(interest) ||
