@@ -1,0 +1,167 @@
+
+/* Port Allegany Lions Club — dropdown navigation */
+
+/* Keep dropdowns above page content. */
+.lions-dropdown-header {
+  position: relative;
+  z-index: 100;
+}
+
+.lions-desktop-nav {
+  display: flex;
+  align-items: center;
+  gap: clamp(10px, 1.35vw, 23px);
+}
+
+.lions-nav-group {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.lions-nav-trigger {
+  appearance: none;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 10px 0;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.lions-nav-trigger:hover,
+.lions-nav-trigger[aria-expanded="true"] {
+  color: #00338d;
+}
+
+.lions-nav-trigger:focus-visible,
+.lions-desktop-dropdown a:focus-visible,
+.lions-mobile-group-trigger:focus-visible,
+.lions-mobile-submenu a:focus-visible {
+  outline: 3px solid #ebb700;
+  outline-offset: 3px;
+}
+
+.lions-nav-trigger svg,
+.lions-mobile-group-trigger svg {
+  transition: transform .18s ease;
+}
+
+.lions-chevron-open {
+  transform: rotate(180deg);
+}
+
+.lions-desktop-dropdown {
+  position: absolute;
+  top: calc(100% - 1px);
+  left: -18px;
+  min-width: 235px;
+  padding: 9px;
+  background: #ffffff;
+  border: 1px solid #d9e4ee;
+  border-top: 3px solid #ebb700;
+  box-shadow: 0 14px 35px rgba(7, 27, 55, .16);
+  border-radius: 0 0 5px 5px;
+  z-index: 150;
+}
+
+.lions-desktop-dropdown[hidden],
+.lions-mobile-submenu[hidden] {
+  display: none !important;
+}
+
+.lions-desktop-dropdown a {
+  display: flex;
+  align-items: center;
+  padding: 11px 12px;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.35;
+  color: #0d2240;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.lions-desktop-dropdown a:hover {
+  color: #00338d;
+  background: #edf3f9;
+}
+
+.lions-mobile-group {
+  width: 100%;
+}
+
+.lions-mobile-group-trigger {
+  appearance: none;
+  border: 0;
+  border-bottom: 1px solid rgba(13, 34, 64, .10);
+  border-radius: 0;
+  background: transparent;
+  color: #0d2240;
+  width: 100%;
+  min-height: 50px;
+  padding: 13px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font: inherit;
+  font-weight: 750;
+  cursor: pointer;
+  text-align: left;
+}
+
+.lions-mobile-submenu {
+  padding: 4px 0 10px 14px;
+  background: #edf3f9;
+}
+
+.lions-mobile-submenu a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 44px;
+  padding: 11px 21px;
+  color: #203d5d;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+/* On smaller screens, use only the hamburger navigation. */
+@media (max-width: 1050px) {
+  .lions-desktop-nav {
+    display: none !important;
+  }
+
+  .lions-dropdown-header .mobile-toggle {
+    display: inline-flex;
+  }
+}
+
+@media (min-width: 1051px) {
+  .lions-dropdown-header .mobile-toggle,
+  .lions-mobile-nav,
+  .lions-dropdown-header .mobile-menu-backdrop {
+    display: none !important;
+  }
+}
+
+/* Respect the existing mobile panel styling. */
+.lions-mobile-nav {
+  max-height: min(78vh, 640px);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lions-nav-trigger svg,
+  .lions-mobile-group-trigger svg {
+    transition: none;
+  }
+}

@@ -1,38 +1,145 @@
 'use client';
 import Link from 'next/link';
 import { useEffect, useRef, useState } from 'react';
-import { ArrowRight, Menu, X, Instagram, Facebook, ArrowUpRight } from 'lucide-react';
+import { ArrowRight, Menu, X, Instagram, Facebook, ArrowUpRight, ChevronDown } from 'lucide-react';
 import { club } from '@/lib/content';
+import '../styles/header-dropdowns.css';
 
-const nav = [{href:'/about',label:'Our Club'},{href:'/events',label:'Events'},{href:'/impact',label:'Our Impact'},{href:'/join',label:'Get Involved'}];
+
+// LIONS DROPDOWN NAV V2
+
+type NavigationItem = {
+  label: string;
+  href: string;
+  download?: boolean;
+};
+
+const navigationGroups: {
+  id: string;
+  label: string;
+  links: NavigationItem[];
+}[] = [
+  {
+    id: 'club',
+    label: 'Our Club',
+    links: [
+      {label: 'About Us', href: '/about'},
+      {label: 'Our Impact', href: '/impact'},
+      {label: 'Community Partners', href: '/partners'},
+      {label: 'News & Updates', href: '/news'},
+    ],
+  },
+  {
+    id: 'community',
+    label: 'Community',
+    links: [
+      {label: 'Events', href: '/events'},
+      {label: 'Community Needs Board', href: '/community-needs'},
+      {label: 'Suggest a Project', href: '/suggest-project'},
+      {label: 'Eyeglass Recycling', href: '/vision'},
+    ],
+  },
+  {
+    id: 'involved',
+    label: 'Get Involved',
+    links: [
+      {label: 'Volunteer & Membership', href: '/join'},
+      {label: 'Membership FAQ', href: '/join#membership-faq'},
+      {
+        label: 'Volunteer Flyer',
+        href: '/volunteer-flyer.pdf',
+        download: true,
+      },
+    ],
+  },
+];
+
 export function Header() {
-  const [open, setOpen] = useState(false);
-  const toggleRef = useRef<HTMLButtonElement>(null);
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const [desktopOpen, setDesktopOpen] = useState<string | null>(null);
+  const [mobileGroup, setMobileGroup] = useState<string | null>(null);
 
-  const closeMenu = () => setOpen(false);
+  const headerRef = useRef<HTMLElement>(null);
+  const toggleRef = useRef<HTMLButtonElement>(null);
+  const desktopButtons = useRef<Record<string, HTMLButtonElement | null>>({});
+
+  function closeAll() {
+    setMobileOpen(false);
+    setDesktopOpen(null);
+    setMobileGroup(null);
+  }
 
   useEffect(() => {
-    if (!open) return;
-
-    function onKeyDown(event: KeyboardEvent) {
-      if (event.key === 'Escape') {
-        setOpen(false);
-        toggleRef.current?.focus();
+    function onPointerDown(event: PointerEvent) {
+      if (
+        headerRef.current &&
+        !headerRef.current.contains(event.target as Node)
+      ) {
+        closeAll();
       }
     }
 
+    function onKeyDown(event: KeyboardEvent) {
+      if (event.key !== 'Escape') return;
+
+      if (mobileOpen) {
+        closeAll();
+        toggleRef.current?.focus();
+      } else if (desktopOpen) {
+        const active = desktopOpen;
+        closeAll();
+        desktopButtons.current[active]?.focus();
+      }
+    }
+
+    document.addEventListener('pointerdown', onPointerDown);
     document.addEventListener('keydown', onKeyDown);
-    return () => document.removeEventListener('keydown', onKeyDown);
-  }, [open]);
+
+    return () => {
+      document.removeEventListener('pointerdown', onPointerDown);
+      document.removeEventListener('keydown', onKeyDown);
+    };
+  }, [mobileOpen, desktopOpen]);
+
+  function menuLink(item: NavigationItem, mobile = false) {
+    const contents = (
+      <>
+        <span>{item.label}</span>
+        {mobile && <ArrowRight size={17}/>}
+      </>
+    );
+
+    if (item.download) {
+      return (
+        <a
+          key={item.href}
+          href={item.href}
+          download="Port-Allegany-Lions-Volunteer-Flyer.pdf"
+          onClick={closeAll}
+        >
+          {contents}
+        </a>
+      );
+    }
+
+    return (
+      <Link key={item.href} href={item.href} onClick={closeAll}>
+        {contents}
+      </Link>
+    );
+  }
 
   return (
-    <header className="site-header mobile-ready-header">
+    <header
+      ref={headerRef}
+      className="site-header mobile-ready-header lions-dropdown-header"
+    >
       <div className="wrap nav-wrap">
         <Link
           href="/"
           className="brand"
           aria-label="Port Allegany Lions Club homepage"
-          onClick={closeMenu}
+          onClick={closeAll}
         >
           <img
             src="/images/lions-emblem-official.png"
@@ -48,13 +155,51 @@ export function Header() {
           </span>
         </Link>
 
-        <nav className="desktop-nav" aria-label="Main navigation">
-          {nav.map(item => (
-            <Link key={item.href} href={item.href}>
-              {item.label}
-            </Link>
+        <nav className="desktop-nav lions-desktop-nav" aria-label="Main navigation">
+          <Link href="/" onClick={closeAll}>Home</Link>
+
+          {navigationGroups.map(group => (
+            <div
+              className="lions-nav-group"
+              key={group.id}
+              onMouseEnter={() => setDesktopOpen(group.id)}
+              onMouseLeave={() => setDesktopOpen(current =>
+                current === group.id ? null : current
+              )}
+            >
+              <button
+                type="button"
+                ref={node => { desktopButtons.current[group.id] = node; }}
+                className="lions-nav-trigger"
+                aria-expanded={desktopOpen === group.id}
+                aria-controls={'desktop-submenu-' + group.id}
+                onClick={() => setDesktopOpen(current =>
+                  current === group.id ? null : group.id
+                )}
+              >
+                {group.label}
+                <ChevronDown
+                  size={14}
+                  aria-hidden="true"
+                  className={desktopOpen === group.id ? 'lions-chevron-open' : ''}
+                />
+              </button>
+
+              <div
+                id={'desktop-submenu-' + group.id}
+                className="lions-desktop-dropdown"
+                hidden={desktopOpen !== group.id}
+              >
+                {group.links.map(item => menuLink(item))}
+              </div>
+            </div>
           ))}
-          <Link className="nav-button" href="/contact">
+
+          <Link
+            className="nav-button"
+            href="/contact"
+            onClick={closeAll}
+          >
             Contact <ArrowUpRight size={15}/>
           </Link>
         </nav>
@@ -63,42 +208,82 @@ export function Header() {
           ref={toggleRef}
           type="button"
           className="mobile-toggle"
-          aria-label={open ? 'Close navigation menu' : 'Open navigation menu'}
-          aria-expanded={open}
+          aria-label={mobileOpen ? 'Close navigation menu' : 'Open navigation menu'}
+          aria-expanded={mobileOpen}
           aria-controls="mobile-site-navigation"
-          onClick={() => setOpen(value => !value)}
+          onClick={() => {
+            setMobileOpen(value => !value);
+            setMobileGroup(null);
+            setDesktopOpen(null);
+          }}
         >
-          {open ? <X size={26}/> : <Menu size={26}/>}
+          {mobileOpen ? <X size={26}/> : <Menu size={26}/>}
         </button>
       </div>
 
-      {open && (
+      {mobileOpen && (
         <button
           type="button"
           className="mobile-menu-backdrop"
           aria-label="Close navigation menu"
           tabIndex={-1}
-          onClick={closeMenu}
+          onClick={closeAll}
         />
       )}
 
       <nav
         id="mobile-site-navigation"
-        className={open ? 'mobile-nav mobile-nav-open' : 'mobile-nav'}
+        className={
+          mobileOpen
+            ? 'mobile-nav mobile-nav-open lions-mobile-nav'
+            : 'mobile-nav lions-mobile-nav'
+        }
         aria-label="Mobile navigation"
-        hidden={!open}
+        hidden={!mobileOpen}
       >
-        {[...nav, {href: '/contact', label: 'Contact'}].map(item => (
-          <Link
-            key={item.href}
-            href={item.href}
-            onClick={closeMenu}
-            tabIndex={open ? 0 : -1}
-          >
-            <span>{item.label}</span>
-            <ArrowRight size={18}/>
-          </Link>
+        <Link href="/" onClick={closeAll} tabIndex={mobileOpen ? 0 : -1}>
+          <span>Home</span>
+          <ArrowRight size={18}/>
+        </Link>
+
+        {navigationGroups.map(group => (
+          <div className="lions-mobile-group" key={group.id}>
+            <button
+              type="button"
+              className="lions-mobile-group-trigger"
+              aria-expanded={mobileGroup === group.id}
+              aria-controls={'mobile-submenu-' + group.id}
+              tabIndex={mobileOpen ? 0 : -1}
+              onClick={() => setMobileGroup(current =>
+                current === group.id ? null : group.id
+              )}
+            >
+              <span>{group.label}</span>
+              <ChevronDown
+                size={18}
+                aria-hidden="true"
+                className={mobileGroup === group.id ? 'lions-chevron-open' : ''}
+              />
+            </button>
+
+            <div
+              id={'mobile-submenu-' + group.id}
+              className="lions-mobile-submenu"
+              hidden={!mobileOpen || mobileGroup !== group.id}
+            >
+              {group.links.map(item => menuLink(item, true))}
+            </div>
+          </div>
         ))}
+
+        <Link
+          href="/contact"
+          onClick={closeAll}
+          tabIndex={mobileOpen ? 0 : -1}
+        >
+          <span>Contact</span>
+          <ArrowRight size={18}/>
+        </Link>
       </nav>
     </header>
   );
@@ -135,6 +320,11 @@ export function Footer() {
               <Link href="/join">Get Involved</Link>
               <Link href="/community-needs">Community Needs</Link>
               <Link href="/suggest-project">Suggest a Project</Link>
+              {/* LIONS FEATURES PHASE 2 V1 */}
+              <Link href="/news">News & Updates</Link>
+              <Link href="/partners">Community Partners</Link>
+              <Link href="/vision">Eyeglass Recycling</Link>
+              <a href="/volunteer-flyer.pdf" download="Port-Allegany-Lions-Volunteer-Flyer.pdf">Volunteer Flyer</a>
               <Link href="/contact">Contact</Link>
             </div>
             {club.socialUrl && (
