@@ -285,7 +285,14 @@ export default function Join() {
         </div>
       </section>
 
-      <section className="join-ending">
+      {/* LIONS FEATURES PHASE 2 V1 */}
+<section className="lx-flyer-promo" style={{padding:"34px 0",background:"#edf3f9"}}>
+ <div className="wrap" style={{display:"flex",flexWrap:"wrap",alignItems:"center",justifyContent:"space-between",gap:"18px"}}>
+  <div><h2 style={{fontSize:"clamp(25px,3vw,36px)",margin:"0 0 8px"}}>Help spread the word.</h2><p style={{margin:0,color:"#556c82"}}>Share our volunteer flyer with friends and neighbors.</p></div>
+  <a href="/volunteer-flyer.pdf" download="Port-Allegany-Lions-Volunteer-Flyer.pdf" style={{display:"inline-flex",padding:"13px 18px",background:"#ebb700",color:"#0d2240",fontWeight:800}}>Download volunteer flyer ↓</a>
+ </div>
+</section>
+<section className="join-ending">
         <div className="wrap join-ending-inner">
           <div>
             <p className="join-overline">LEARN MORE ABOUT OUR CLUB</p>

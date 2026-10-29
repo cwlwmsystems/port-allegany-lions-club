@@ -11,6 +11,7 @@ import {
 
 import { focusAreas, impactStories } from '@/lib/content';
 import '../../styles/impact.css';
+import LionsServiceCounter from '@/components/lions-service-counter';
 
 export const metadata = {
   title: 'Our Impact',
@@ -184,6 +185,8 @@ export default function Impact() {
       </section>
 
       {/* CLOSING */}
+      {/* LIONS FEATURES PHASE 2 V1 */}
+      <LionsServiceCounter />
       <section className="impact-closing">
         <div className="wrap impact-closing-inner">
           <div>
