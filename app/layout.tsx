@@ -1,3 +1,4 @@
+import GivebutterDonation from '@/components/givebutter-donation';
 import { Analytics } from '@vercel/analytics/next';
 import type { Metadata } from 'next';
 import './globals.css';
@@ -36,6 +37,7 @@ export default function RootLayout({
       <body>
         <Header />
         <main id="main-content">{children}</main>
+        <GivebutterDonation />
         <Footer />
       <Analytics /></body>
     </html>
