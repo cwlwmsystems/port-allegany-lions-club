@@ -1,3 +1,4 @@
+import '../../styles/about-support.css';
 import Link from 'next/link';
 import {
   ArrowRight,
@@ -219,6 +220,76 @@ export default function About() {
               <ArrowRight size={18}/>
             </Link>
           </div>
+        </div>
+      </section>
+
+    
+      {/* ABOUT SUPPORT MISSION V1 */}
+      <section className="about-support" aria-labelledby="about-support-title">
+        <div className="wrap">
+          <div className="about-support-intro">
+            <p className="about-support-eyebrow">SUPPORT OUR MISSION</p>
+            <h2 id="about-support-title">
+              Small contributions.<br/>
+              <span>Meaningful impact.</span>
+            </h2>
+            <p>
+              Every act of generosity helps strengthen our hometown.
+              Whether you give your time, share your skills, donate
+              supplies, or make a financial contribution, you can
+              help support the Port Allegany Lions Club's service mission.
+            </p>
+          </div>
+
+          <div className="about-support-grid">
+            <article className="about-support-card">
+              <span className="about-support-number">01 / GIVE</span>
+              <h3>Make a contribution</h3>
+              <p>
+                Financial support helps the club pursue approved
+                charitable activities and community service initiatives.
+              </p>
+            </article>
+
+            <article className="about-support-card">
+              <span className="about-support-number">02 / CONTRIBUTE</span>
+              <h3>Share goods or services</h3>
+              <p>
+                Local businesses and residents can offer materials,
+                resources, or skills that support club-approved projects.
+              </p>
+            </article>
+
+            <article className="about-support-card">
+              <span className="about-support-number">03 / PARTICIPATE</span>
+              <h3>Volunteer your time</h3>
+              <p>
+                You don't have to be a Lions member to ask about
+                opportunities to lend a hand in our community.
+              </p>
+            </article>
+          </div>
+
+          <div className="about-support-actions">
+            <div>
+              <h3>Be part of something meaningful.</h3>
+              <p>
+                To contribute financially, select the Donate button
+                displayed on this page. Donations are processed
+                securely through Givebutter.
+              </p>
+            </div>
+
+            <a href="/join" className="about-support-join">
+              Explore volunteering
+              <span aria-hidden="true">↗</span>
+            </a>
+          </div>
+
+          <p className="about-support-note">
+            Donations support club-approved activities. Specific project
+            funding depends on club decisions and available resources.
+          </p>
         </div>
       </section>
 

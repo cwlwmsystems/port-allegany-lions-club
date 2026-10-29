@@ -165,3 +165,24 @@
     transition: none;
   }
 }
+
+/* Consistent typography across all desktop navigation items */
+.lions-desktop-nav > a:not(.nav-button),
+.lions-desktop-nav .lions-nav-trigger {
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.4;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.lions-desktop-nav .lions-nav-trigger {
+  color: #0d2240;
+}
+
+.lions-desktop-nav .lions-nav-trigger:hover,
+.lions-desktop-nav .lions-nav-trigger[aria-expanded="true"] {
+  color: #00338d;
+}
+
