@@ -13,7 +13,14 @@ export const events: EventItem[] = [];
 
 export type ImpactItem = { title: string; category: string; description: string; date?: string; };
 // Replace examples with approved, documented local club projects.
-export const impactStories: ImpactItem[] = [];
+export const impactStories: ImpactItem[] = [
+  {
+    title: 'Route 6 Roadside Cleanup',
+    category: 'Community Service',
+    description: 'On October 26, 2026, the Port Allegany Lions Club carried out its biannual garbage pickup along Route 6 outside Port Allegany.',
+    date: '2026-10-26'
+  },
+];
 
 export const focusAreas = [
   { title: 'Community care', description: 'Show up for neighbors and respond to meaningful local needs.', icon: 'heart' },

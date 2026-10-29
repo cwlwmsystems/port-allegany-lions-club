@@ -1,6 +1,9 @@
+import HomeCommunityUpdates from '@/components/home-community-updates';
 import '../styles/mobile-homepage.css';
 import Link from 'next/link';
 import { ArrowRight, CalendarDays, HeartHandshake, UsersRound, Eye, MapPin, ChevronRight, HandHeart, Star, Instagram, Facebook } from 'lucide-react';
+
+export const dynamic = 'force-dynamic';
 
 export default function Home(){return <>
 <section className="fb-hero">
@@ -23,7 +26,7 @@ export default function Home(){return <>
  </div><p className="fb-art-note">Imagery is illustrative; actual local club projects and photographs can be added as they are confirmed.</p></div></section>
 <section className="fb-about-band"><div className="fb-about-image"/><div className="fb-about-content"><p className="fb-overline">MORE THAN A CLUB</p><h2>A tradition of<br/><span>showing up.</span></h2><p>Real community starts with connection. Whether you have an hour to give or a lifelong passion for helping others, there is room to take the next step.</p><Link href="/join" className="fb-primary">Become a Lion <ArrowRight size={18}/></Link><div className="fb-about-tag">WE SERVE. · PORT ALLEGANY, PA</div></div></section>
 
-<section className="fb-events-redesign">
+{/* LIONS HOMEPAGE COMMUNITY UPDATES V1 */}\n <HomeCommunityUpdates />\n <section className="fb-events-redesign">
   <div className="fb-events-layout">
 
     <div className="fb-events-photo">

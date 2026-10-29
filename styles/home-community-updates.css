@@ -1,0 +1,400 @@
+
+/* Port Allegany Lions Club - homepage community updates */
+
+.home-community-feed {
+  padding: 76px 0;
+  background: #f3f7fb;
+  color: #0d2240;
+}
+
+.home-feed-eyebrow {
+  color: #00338d;
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: .15em;
+  margin: 0 0 16px;
+}
+
+.home-feed-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 40px;
+  margin-bottom: 32px;
+}
+
+.home-feed-heading h2,
+.home-actions-heading h2 {
+  color: #0d2240;
+  font-size: clamp(34px, 4vw, 54px);
+  line-height: 1.1;
+  letter-spacing: -.045em;
+  margin: 0;
+}
+
+.home-feed-heading h2 span {
+  color: #00338d;
+}
+
+.home-feed-heading > p {
+  color: #5d7085;
+  max-width: 380px;
+  font-size: 15px;
+  line-height: 1.7;
+  margin: 0;
+}
+
+.home-feed-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.home-feed-panel {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  background: #fff;
+  border: 1px solid #dce5ee;
+  padding: 31px;
+}
+
+.home-feed-panel-top {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 22px;
+}
+
+.home-feed-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  height: 46px;
+  color: #00338d;
+  background: #e8f0f8;
+}
+
+.home-feed-panel-top > span {
+  color: #00338d;
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: .12em;
+}
+
+.home-feed-panel h3 {
+  font-size: 29px;
+  line-height: 1.2;
+  letter-spacing: -.03em;
+  margin: 0 0 19px;
+}
+
+.home-feed-items {
+  display: grid;
+  gap: 16px;
+}
+
+.home-feed-entry {
+  border-top: 1px solid #e2e9f0;
+  padding-top: 17px;
+}
+
+.home-feed-meta {
+  font-size: 10px !important;
+  font-weight: 900;
+  color: #00338d !important;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+}
+
+.home-feed-entry h4 {
+  color: #0d2240;
+  font-size: 19px;
+  margin: 8px 0;
+}
+
+.home-feed-entry > p:not(.home-feed-meta),
+.home-feed-empty p {
+  color: #586e82;
+  font-size: 14px;
+  line-height: 1.65;
+  margin: 0;
+}
+
+.home-feed-location {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: #526d85;
+  font-size: 12px;
+  margin-top: 12px;
+}
+
+.home-feed-empty {
+  padding: 19px;
+  border-left: 3px solid #ebb700;
+  background: #f3f7fb;
+}
+
+.home-feed-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  width: fit-content;
+  margin-top: auto;
+  padding-top: 27px;
+  color: #00338d;
+  font-size: 13px;
+  font-weight: 900;
+  text-decoration: none;
+}
+
+.home-feed-link:hover {
+  text-decoration: underline;
+}
+
+.home-community-actions {
+  padding: 76px 0 84px;
+  background: #fff;
+  color: #0d2240;
+}
+
+.home-actions-heading {
+  max-width: 740px;
+  margin-bottom: 31px;
+}
+
+.home-actions-heading > p:last-child {
+  color: #5d7085;
+  font-size: 15px;
+  line-height: 1.7;
+  margin: 16px 0 0;
+}
+
+.home-action-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 19px;
+}
+
+.home-action-card {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  padding: 30px;
+  border: 1px solid #dce5ee;
+  color: #0d2240;
+  background: #f8fafc;
+  text-decoration: none;
+  transition:
+    border-color .2s ease,
+    transform .2s ease,
+    box-shadow .2s ease;
+}
+
+.home-action-card:hover {
+  border-color: #00338d;
+  box-shadow: 0 11px 25px rgba(13,34,64,.09);
+  transform: translateY(-2px);
+}
+
+.home-action-card:focus-visible,
+.home-feed-link:focus-visible {
+  outline: 3px solid #ebb700;
+  outline-offset: 3px;
+}
+
+.home-action-card > svg {
+  color: #00338d;
+  margin-bottom: 24px;
+}
+
+.home-action-card > span {
+  color: #00338d;
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: .11em;
+  margin-bottom: 11px;
+}
+
+.home-action-card h3 {
+  color: #0d2240;
+  font-size: 24px;
+  line-height: 1.2;
+  margin: 0 0 13px;
+}
+
+.home-action-card p {
+  color: #5d7085;
+  font-size: 14px;
+  line-height: 1.65;
+  margin: 0 0 24px;
+}
+
+.home-action-card strong {
+  display: inline-flex;
+  align-items: center;
+  gap: 11px;
+  margin-top: auto;
+  color: #00338d;
+  font-size: 13px;
+}
+
+@media (max-width: 900px) {
+  .home-feed-heading {
+    display: block;
+  }
+
+  .home-feed-heading > p {
+    margin-top: 17px;
+  }
+
+  .home-action-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 767px) {
+  .home-community-feed,
+  .home-community-actions {
+    padding: 39px 0 44px;
+  }
+
+  .home-feed-heading {
+    margin-bottom: 23px;
+  }
+
+  .home-feed-heading h2,
+  .home-actions-heading h2 {
+    font-size: clamp(30px, 8vw, 40px);
+  }
+
+  .home-feed-heading > p,
+  .home-actions-heading > p:last-child {
+    font-size: 13px;
+  }
+
+  .home-feed-grid {
+    grid-template-columns: 1fr;
+    gap: 13px;
+  }
+
+  .home-feed-panel {
+    padding: 21px;
+  }
+
+  .home-feed-panel h3 {
+    font-size: 23px;
+  }
+
+  .home-feed-entry h4 {
+    font-size: 17px;
+  }
+
+  .home-feed-entry > p:not(.home-feed-meta),
+  .home-feed-empty p {
+    font-size: 12px;
+  }
+
+  .home-feed-link {
+    padding-top: 20px;
+  }
+
+  .home-actions-heading {
+    margin-bottom: 22px;
+  }
+
+  .home-action-grid {
+    gap: 12px;
+  }
+
+  .home-action-card {
+    padding: 22px;
+  }
+
+  .home-action-card > svg {
+    margin-bottom: 17px;
+  }
+
+  .home-action-card h3 {
+    font-size: 20px;
+  }
+
+  .home-action-card p {
+    font-size: 13px;
+    margin-bottom: 16px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .home-action-card {
+    transition: none;
+  }
+
+  .home-action-card:hover {
+    transform: none;
+  }
+}
+
+
+/* Recently completed club service */
+.home-recent-service {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+  padding: 29px 32px;
+  margin-bottom: 20px;
+  background: #0d2240;
+  border-left: 5px solid #ebb700;
+  color: #fff;
+}
+
+.home-recent-service-copy {
+  max-width: 730px;
+}
+
+.home-recent-service .home-feed-eyebrow {
+  color: #ffd13e;
+  margin-bottom: 10px;
+}
+
+.home-recent-service h3 {
+  color: #fff;
+  font-size: clamp(23px, 3vw, 32px);
+  margin: 0 0 10px;
+}
+
+.home-recent-service-copy > p:not(.home-feed-eyebrow) {
+  color: #e0e8f3;
+  font-size: 14px;
+  line-height: 1.7;
+  margin: 0 0 13px;
+}
+
+.home-recent-service-date {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  color: #ffd13e;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.home-recent-service .home-feed-link {
+  color: #ffd13e;
+  padding-top: 0;
+  flex-shrink: 0;
+}
+
+@media (max-width: 767px) {
+  .home-recent-service {
+    display: block;
+    padding: 23px 20px;
+  }
+
+  .home-recent-service .home-feed-link {
+    margin-top: 23px;
+  }
+}
