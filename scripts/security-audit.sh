@@ -179,6 +179,7 @@ TABLES=(
   crm_audit_log
   communication_templates
   communications
+  community_partner_outreach
 )
 
 

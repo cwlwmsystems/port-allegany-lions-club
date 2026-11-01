@@ -3420,3 +3420,446 @@ a[href*="/organizations/"][href$="/edit"] {
     grid-template-columns: 1fr;
   }
 }
+
+
+/* ============================================================
+   COMMUNITY PARTNER WORKFLOW
+   ============================================================ */
+
+.crm-checkbox-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 9px 14px;
+  margin-top: 8px;
+}
+
+.crm-checkbox-option {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.crm-checkbox-option input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  margin: 0;
+}
+
+.crm-pre-wrap {
+  white-space: pre-wrap;
+}
+
+@media (max-width: 700px) {
+  .crm-checkbox-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* ============================================================
+   COMMUNITY PARTNERS
+   ============================================================ */
+
+.crm-partner-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 18px;
+  margin: 22px 0 14px;
+  flex-wrap: wrap;
+}
+
+.crm-partner-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+
+.crm-partner-tab {
+  display: inline-flex;
+  align-items: center;
+  min-height: 34px;
+  padding: 7px 11px;
+  border: 1px solid var(--crm-border);
+  border-radius: 8px;
+  background: #fff;
+  color: var(--crm-text);
+  font-size: 12px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.crm-partner-tab:hover {
+  background: rgba(0, 0, 0, 0.025);
+}
+
+.crm-partner-tab-active {
+  background: var(--crm-text);
+  border-color: var(--crm-text);
+  color: #fff;
+}
+
+.crm-partner-search {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.crm-partner-search input {
+  min-width: 230px;
+}
+
+.crm-partner-status {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 82px;
+  padding: 4px 8px;
+  border-radius: 999px;
+  font-size: 10px;
+  font-weight: 800;
+}
+
+.crm-partner-status-prospect {
+  background: #f1f2f4;
+  color: #555;
+}
+
+.crm-partner-status-contacted {
+  background: #eef3f8;
+  color: #315f85;
+}
+
+.crm-partner-status-interested {
+  background: #fff7df;
+  color: #8a6410;
+}
+
+.crm-partner-status-follow_up_later {
+  background: #f4effa;
+  color: #65458a;
+}
+
+.crm-partner-status-active {
+  background: #edf7f1;
+  color: #24734c;
+}
+
+.crm-partner-status-inactive {
+  background: #f1f2f4;
+  color: #686868;
+}
+
+.crm-partner-status-not_interested {
+  background: #fff0ef;
+  color: #a43c35;
+}
+
+.crm-followup-overdue {
+  font-weight: 800;
+  color: #b63730;
+}
+
+@media (max-width: 780px) {
+  .crm-partner-toolbar {
+    align-items: stretch;
+  }
+
+  .crm-partner-search {
+    width: 100%;
+  }
+
+  .crm-partner-search input {
+    flex: 1;
+    min-width: 0;
+  }
+}
+
+
+/* ============================================================
+   COMMUNITY PARTNER OUTREACH ACTIONS
+   ============================================================ */
+
+.crm-partner-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 8px;
+}
+
+.crm-partner-action-link {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 7px;
+  border: 1px solid var(--crm-border);
+  border-radius: 6px;
+  background: #fff;
+  color: var(--crm-text);
+  font-size: 10px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.crm-partner-action-link:hover {
+  background: rgba(0, 0, 0, 0.03);
+}
+
+.crm-outreach-form {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.crm-outreach-form input[type="date"] {
+  max-width: 130px;
+  min-height: 31px;
+  padding: 4px 6px;
+  font-size: 10px;
+}
+
+.crm-button-small {
+  min-height: 31px;
+  padding: 5px 8px;
+  font-size: 10px;
+}
+
+@media (max-width: 900px) {
+  .crm-outreach-form {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .crm-outreach-form input[type="date"] {
+    max-width: none;
+  }
+}
+
+
+/* ============================================================
+   COMMUNITY PARTNER OUTREACH HISTORY
+   ============================================================ */
+
+.crm-outreach-form {
+  flex-wrap: wrap;
+}
+
+.crm-outreach-form select {
+  min-height: 31px;
+  padding: 4px 6px;
+  font-size: 10px;
+}
+
+.crm-outreach-form input[type="text"] {
+  min-width: 150px;
+  min-height: 31px;
+  padding: 4px 7px;
+  font-size: 10px;
+}
+
+.crm-outreach-history {
+  display: flex;
+  flex-direction: column;
+}
+
+.crm-outreach-history-item {
+  padding: 14px 0;
+  border-bottom: 1px solid var(--crm-border);
+}
+
+.crm-outreach-history-item:last-child {
+  border-bottom: 0;
+}
+
+.crm-outreach-history-main {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.crm-outreach-outcome {
+  display: inline-flex;
+  padding: 3px 7px;
+  border-radius: 999px;
+  background: #eef3f8;
+  color: #315f85;
+  font-size: 9px;
+  font-weight: 800;
+}
+
+.crm-outreach-date {
+  margin-left: auto;
+  color: var(--crm-text-muted);
+  font-size: 11px;
+}
+
+.crm-outreach-notes {
+  margin-top: 7px;
+  line-height: 1.5;
+  font-size: 13px;
+}
+
+.crm-outreach-followup {
+  margin-top: 6px;
+  color: var(--crm-text-muted);
+  font-size: 11px;
+  font-weight: 700;
+}
+
+@media (max-width: 760px) {
+  .crm-outreach-date {
+    width: 100%;
+    margin-left: 0;
+  }
+}
+
+
+/* ============================================================
+   PROFESSIONAL OUTREACH HISTORY
+   ============================================================ */
+
+.crm-outreach-history {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 4px 0;
+}
+
+.crm-outreach-history-item {
+  position: relative;
+  padding: 16px 18px;
+  border: 1px solid var(--crm-border);
+  border-radius: 10px;
+  background: #fff;
+  box-shadow:
+    0 2px 8px rgba(0, 0, 0, 0.025);
+  transition:
+    border-color .15s ease,
+    box-shadow .15s ease,
+    transform .15s ease;
+}
+
+.crm-outreach-history-item:hover {
+  border-color: rgba(0, 0, 0, 0.14);
+  box-shadow:
+    0 4px 14px rgba(0, 0, 0, 0.045);
+  transform: translateY(-1px);
+}
+
+.crm-outreach-history-main {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.crm-outreach-history-left {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+
+.crm-outreach-method {
+  display: inline-flex;
+  align-items: center;
+  min-height: 25px;
+  padding: 4px 9px;
+  border-radius: 7px;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: .03em;
+  text-transform: uppercase;
+  background: #eef3f8;
+  color: #315f85;
+}
+
+.crm-outreach-method-facebook {
+  background: #eef4ff;
+  color: #2f5fa7;
+}
+
+.crm-outreach-method-email {
+  background: #edf7f1;
+  color: #24734c;
+}
+
+.crm-outreach-method-phone {
+  background: #f3eff9;
+  color: #694991;
+}
+
+.crm-outreach-method-in_person,
+.crm-outreach-method-meeting {
+  background: #fff7df;
+  color: #866210;
+}
+
+.crm-outreach-method-letter {
+  background: #f3f4f6;
+  color: #4b5563;
+}
+
+.crm-outreach-outcome {
+  display: inline-flex;
+  align-items: center;
+  min-height: 25px;
+  padding: 4px 9px;
+  border-radius: 999px;
+  background: #f4f6f8;
+  color: #52606d;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.crm-outreach-date {
+  flex-shrink: 0;
+  color: var(--crm-text-muted);
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.crm-outreach-notes {
+  margin-top: 12px;
+  padding-top: 11px;
+  border-top: 1px solid var(--crm-border);
+  color: var(--crm-text);
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+.crm-outreach-followup {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  margin-top: 12px;
+  padding: 7px 9px;
+  border-radius: 7px;
+  background: #faf7ed;
+  color: #715b20;
+}
+
+.crm-outreach-followup-label {
+  font-size: 10px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: .04em;
+}
+
+.crm-outreach-followup-date {
+  font-size: 11px;
+  font-weight: 700;
+}
+
+@media (max-width: 760px) {
+  .crm-outreach-history-main {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .crm-outreach-date {
+    width: 100%;
+  }
+}

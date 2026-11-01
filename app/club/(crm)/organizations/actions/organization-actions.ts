@@ -11,6 +11,84 @@ function optionalString(formData: FormData, key: string) {
   return value || null;
 }
 
+function stringArray(formData: FormData, key: string) {
+  return formData
+    .getAll(key)
+    .map((value) => value.toString().trim())
+    .filter(Boolean);
+}
+
+function checkboxValue(formData: FormData, key: string) {
+  return formData.get(key) === 'on';
+}
+
+function communityPartnerFields(formData: FormData) {
+  const status =
+    optionalString(formData, 'community_partner_status') ||
+    'not_prospect';
+
+  const partnerSince =
+    optionalString(formData, 'community_partner_since');
+
+  const showPublicly =
+    checkboxValue(formData, 'community_partner_public');
+
+  if (status === 'active' && !partnerSince) {
+    throw new Error(
+      'Active Community Partners require a Partner Since date.'
+    );
+  }
+
+  if (showPublicly && status !== 'active') {
+    throw new Error(
+      'Only Active Community Partners can be shown publicly.'
+    );
+  }
+
+  return {
+    community_partner_status: status,
+    community_partner_support_types:
+      stringArray(
+        formData,
+        'community_partner_support_types'
+      ),
+    community_partner_since: partnerSince,
+    community_partner_end_date:
+      optionalString(
+        formData,
+        'community_partner_end_date'
+      ),
+    community_partner_public: showPublicly,
+    community_partner_public_description:
+      optionalString(
+        formData,
+        'community_partner_public_description'
+      ),
+    community_partner_logo_url:
+      optionalString(
+        formData,
+        'community_partner_logo_url'
+      ),
+    facebook_url:
+      optionalString(formData, 'facebook_url'),
+    community_partner_last_contacted:
+      optionalString(
+        formData,
+        'community_partner_last_contacted'
+      ),
+    community_partner_next_follow_up:
+      optionalString(
+        formData,
+        'community_partner_next_follow_up'
+      ),
+    community_partner_notes:
+      optionalString(
+        formData,
+        'community_partner_notes'
+      ),
+  };
+}
+
 export async function createOrganization(formData: FormData) {
   await assertCRMRole(['admin', 'officer']);
   const supabase = await createClient();
@@ -43,6 +121,7 @@ export async function createOrganization(formData: FormData) {
       state: optionalString(formData, 'state'),
       postal_code: optionalString(formData, 'postal_code'),
       notes: optionalString(formData, 'notes'),
+      ...communityPartnerFields(formData),
     })
     .select('id')
     .single();
@@ -91,6 +170,7 @@ export async function updateOrganization(
       state: optionalString(formData, 'state'),
       postal_code: optionalString(formData, 'postal_code'),
       notes: optionalString(formData, 'notes'),
+      ...communityPartnerFields(formData),
     })
     .eq('id', organizationId);
 

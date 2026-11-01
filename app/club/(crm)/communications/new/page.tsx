@@ -18,6 +18,7 @@ export default async function NewCommunicationPage({
   searchParams: Promise<{
     type?: string;
     contact?: string;
+    organization?: string;
   }>;
 }) {
   await requireCRMRole(ROLES);
@@ -144,7 +145,12 @@ export default async function NewCommunicationPage({
               Organization
             </span>
 
-            <select name="organization_id">
+            <select
+              name="organization_id"
+              defaultValue={
+                params.organization || ''
+              }
+            >
               <option value="">
                 No Organization
               </option>

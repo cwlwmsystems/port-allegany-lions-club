@@ -41,6 +41,22 @@ export default async function OrganizationRecordPage({
     notFound();
   }
 
+  const { data: outreachHistory } = await supabase
+    .from('community_partner_outreach')
+    .select(`
+      id,
+      outreach_type,
+      outcome,
+      notes,
+      contacted_at,
+      next_follow_up
+    `)
+    .eq('organization_id', id)
+    .order('contacted_at', {
+      ascending: false,
+    })
+    .limit(50);
+
   const { data: contacts } = await supabase
     .from('contacts')
     .select('id, first_name, last_name, email')
@@ -184,6 +200,236 @@ export default async function OrganizationRecordPage({
               </div>
 
             </div>
+
+          </section>
+
+
+          <section className="crm-panel">
+
+            <div className="crm-panel-header">
+              <h3>Community Partner</h3>
+            </div>
+
+            <div className="crm-property-grid">
+
+              <div className="crm-property">
+                <span className="crm-property-label">
+                  Status
+                </span>
+
+                <span className="crm-property-value">
+                  {(
+                    organization.community_partner_status ||
+                    'not_prospect'
+                  )
+                    .replaceAll('_', ' ')
+                    .replace(/\b\w/g, (char: string) =>
+                      char.toUpperCase()
+                    )}
+                </span>
+              </div>
+
+              <div className="crm-property">
+                <span className="crm-property-label">
+                  Public Partner
+                </span>
+
+                <span className="crm-property-value">
+                  {organization.community_partner_public
+                    ? 'Yes'
+                    : 'No'}
+                </span>
+              </div>
+
+              <div className="crm-property">
+                <span className="crm-property-label">
+                  Partner Since
+                </span>
+
+                <span className="crm-property-value">
+                  {organization.community_partner_since || '—'}
+                </span>
+              </div>
+
+              <div className="crm-property">
+                <span className="crm-property-label">
+                  Last Contacted
+                </span>
+
+                <span className="crm-property-value">
+                  {organization.community_partner_last_contacted || '—'}
+                </span>
+              </div>
+
+              <div className="crm-property">
+                <span className="crm-property-label">
+                  Next Follow-up
+                </span>
+
+                <span className="crm-property-value">
+                  {organization.community_partner_next_follow_up || '—'}
+                </span>
+              </div>
+
+              <div className="crm-property">
+                <span className="crm-property-label">
+                  Facebook
+                </span>
+
+                <span className="crm-property-value">
+                  {organization.facebook_url ? (
+                    <a
+                      href={organization.facebook_url}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="crm-link"
+                    >
+                      Open Page
+                    </a>
+                  ) : (
+                    '—'
+                  )}
+                </span>
+              </div>
+
+              <div className="crm-property crm-property-wide">
+                <span className="crm-property-label">
+                  Support Types
+                </span>
+
+                <span className="crm-property-value">
+                  {organization.community_partner_support_types?.length
+                    ? organization.community_partner_support_types.join(', ')
+                    : '—'}
+                </span>
+              </div>
+
+              <div className="crm-property crm-property-wide">
+                <span className="crm-property-label">
+                  Public Description
+                </span>
+
+                <span className="crm-property-value">
+                  {organization.community_partner_public_description || '—'}
+                </span>
+              </div>
+
+              <div className="crm-property crm-property-wide">
+                <span className="crm-property-label">
+                  Partner / Outreach Notes
+                </span>
+
+                <span className="crm-property-value crm-pre-wrap">
+                  {organization.community_partner_notes || '—'}
+                </span>
+              </div>
+
+            </div>
+
+          </section>
+
+
+          <section className="crm-panel">
+
+            <div className="crm-panel-header">
+              <h3>Outreach History</h3>
+            </div>
+
+            {outreachHistory?.length ? (
+              <div className="crm-outreach-history">
+
+                {outreachHistory.map(
+                  (entry) => (
+                    <div
+                      key={entry.id}
+                      className="crm-outreach-history-item"
+                    >
+                      <div className="crm-outreach-history-main">
+
+                        <div className="crm-outreach-history-left">
+                          <span
+                            className={`crm-outreach-method crm-outreach-method-${entry.outreach_type}`}
+                          >
+                            {entry.outreach_type
+                              .replaceAll('_', ' ')
+                              .replace(
+                                /\b\w/g,
+                                (char: string) =>
+                                  char.toUpperCase()
+                              )}
+                          </span>
+
+                          {entry.outcome && (
+                            <span className="crm-outreach-outcome">
+                              {entry.outcome
+                                .replaceAll('_', ' ')
+                                .replace(
+                                  /\b\w/g,
+                                  (char: string) =>
+                                    char.toUpperCase()
+                                )}
+                            </span>
+                          )}
+                        </div>
+
+                        <span className="crm-outreach-date">
+                          {new Intl.DateTimeFormat(
+                            'en-US',
+                            {
+                              month: 'short',
+                              day: 'numeric',
+                              year: 'numeric',
+                              hour: 'numeric',
+                              minute: '2-digit',
+                            }
+                          ).format(
+                            new Date(
+                              entry.contacted_at
+                            )
+                          )}
+                        </span>
+
+                      </div>
+
+                      {entry.notes && (
+                        <div className="crm-outreach-notes">
+                          {entry.notes}
+                        </div>
+                      )}
+
+                      {entry.next_follow_up && (
+                        <div className="crm-outreach-followup">
+                          <span className="crm-outreach-followup-label">
+                            Next follow-up
+                          </span>
+
+                          <span className="crm-outreach-followup-date">
+                            {new Intl.DateTimeFormat(
+                              'en-US',
+                              {
+                                month: 'short',
+                                day: 'numeric',
+                                year: 'numeric',
+                              }
+                            ).format(
+                              new Date(
+                                `${entry.next_follow_up}T12:00:00`
+                              )
+                            )}
+                          </span>
+                        </div>
+                      )}
+
+                    </div>
+                  )
+                )}
+
+              </div>
+            ) : (
+              <div className="crm-empty-state">
+                No outreach has been logged yet.
+              </div>
+            )}
 
           </section>
 

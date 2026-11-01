@@ -29,6 +29,10 @@ const items = [
     label: 'Organizations',
   },
   {
+    href: '/club/community-partners',
+    label: 'Community Partners',
+  },
+  {
     href: '/club/events',
     label: 'Events',
   },
