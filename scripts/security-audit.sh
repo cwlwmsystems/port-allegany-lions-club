@@ -177,6 +177,8 @@ TABLES=(
   tasks
   crm_user_profiles
   crm_audit_log
+  communication_templates
+  communications
 )
 
 
