@@ -9,3 +9,6 @@ node_modules/
 *.tar.gz
 mobile-pages-review.txt
 .DS_Store
+
+# Local CRM database backups
+/backups/
