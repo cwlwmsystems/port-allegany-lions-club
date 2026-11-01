@@ -12,3 +12,6 @@ mobile-pages-review.txt
 
 # Local CRM database backups
 /backups/
+
+# Supabase CLI temporary state
+/supabase/.temp/
