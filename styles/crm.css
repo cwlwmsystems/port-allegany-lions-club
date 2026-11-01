@@ -3332,3 +3332,91 @@ a[href*="/organizations/"][href$="/edit"] {
     padding: 28px 22px;
   }
 }
+
+
+/* ============================================================
+   COMMUNICATIONS PAGE POLISH
+   ============================================================ */
+
+.crm-page-header {
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.crm-page-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.crm-stat-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin: 24px 0 30px;
+}
+
+.crm-stat-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 96px;
+  padding: 20px;
+  background: #fff;
+  border: 1px solid var(--crm-border);
+  border-radius: 12px;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.03);
+}
+
+.crm-stat-label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--crm-text-muted);
+}
+
+.crm-stat-value {
+  display: block;
+  font-size: 26px;
+  line-height: 1;
+  font-weight: 800;
+  color: var(--crm-text);
+}
+
+.crm-section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 14px;
+}
+
+.crm-section-header h3 {
+  margin: 0;
+}
+
+.crm-table-card {
+  overflow: hidden;
+  background: #fff;
+  border: 1px solid var(--crm-border);
+  border-radius: 12px;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.025);
+}
+
+.crm-table tbody tr:hover {
+  background: rgba(0, 0, 0, 0.018);
+}
+
+.crm-communication-status {
+  min-width: 68px;
+  justify-content: center;
+}
+
+@media (max-width: 900px) {
+  .crm-stat-grid {
+    grid-template-columns: 1fr;
+  }
+}

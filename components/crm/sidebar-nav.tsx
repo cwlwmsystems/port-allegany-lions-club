@@ -44,6 +44,10 @@ const items = [
     href: '/club/tasks',
     label: 'Tasks',
   },
+  {
+    href: '/club/communications',
+    label: 'Communications',
+  },
 ];
 
 export default function SidebarNav({
