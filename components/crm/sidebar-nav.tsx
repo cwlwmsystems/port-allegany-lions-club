@@ -33,6 +33,10 @@ const items = [
     label: 'Community Partners',
   },
   {
+    href: '/club/community-partner-inquiries',
+    label: 'Partner Inquiries',
+  },
+  {
     href: '/club/events',
     label: 'Events',
   },

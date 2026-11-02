@@ -180,6 +180,7 @@ TABLES=(
   communication_templates
   communications
   community_partner_outreach
+  community_partner_inquiries
 )
 
 

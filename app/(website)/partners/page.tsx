@@ -10,6 +10,7 @@ import {
 } from 'lucide-react';
 
 import { createClient } from '@/lib/supabase/server';
+import CommunityPartnerForm from '@/components/community-partner-form';
 
 import '@/styles/lions-phase-two.css';
 import '@/styles/partners.css';
@@ -383,32 +384,62 @@ export default async function PartnersPage() {
       </section>
 
 
-      <section className="lx-cta">
+      <section className="partner-interest-section">
 
-        <div className="wrap lx-cta-inner">
+        <div className="wrap">
 
-          <div>
+          <div className="partner-interest-layout">
 
-            <p className="lx-eyebrow">
-              BECOME A SUPPORTER
-            </p>
+            <div className="partner-interest-copy">
 
-            <h2>
-              Your business can make a difference.
-            </h2>
+              <p className="lx-eyebrow">
+                BECOME A COMMUNITY PARTNER
+              </p>
 
-            <p>
-              Interested in supporting the Lions through
-              a contribution, donated goods or services,
-              or a community partnership?
-            </p>
+              <h2>
+                Help us make a difference in Port Allegany.
+              </h2>
+
+              <p>
+                Community partnership can take many forms.
+                Your business can support local service
+                projects through donations, sponsorships,
+                volunteer time, donated goods or services,
+                event participation, or simply by getting
+                involved with the club.
+              </p>
+
+              <p>
+                Tell us a little about your business and
+                how you might like to participate. We will
+                reach out to start a conversation.
+              </p>
+
+              <div className="partner-interest-benefit">
+
+                <strong>
+                  Community Partner Recognition
+                </strong>
+
+                <p>
+                  Approved active partners may also be
+                  recognized here on our Community Partners
+                  page, including your logo, business
+                  information, and a link to your website.
+                </p>
+
+              </div>
+
+            </div>
+
+
+            <div className="partner-interest-form-wrap">
+
+              <CommunityPartnerForm />
+
+            </div>
 
           </div>
-
-          <Link href="/contact">
-            Contact our club
-            <ArrowRight size={18} />
-          </Link>
 
         </div>
 
