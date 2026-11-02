@@ -15,6 +15,7 @@ import {
 import { createClient } from '@/lib/supabase/server';
 
 import {
+  captureInquiryWebsiteScreenshot,
   convertInquiryToProspect,
   declineInquiry,
   markInquiryReviewing,
@@ -406,12 +407,32 @@ export default async function CommunityPartnerInquiriesPage({
 
                         <div className="crm-website-preview-frame">
 
-                          <iframe
-                            src={inquiry.website}
-                            title={`${inquiry.business_name} website preview`}
-                            loading="lazy"
-                            sandbox="allow-scripts allow-same-origin allow-forms allow-popups"
-                          />
+                          {inquiry.website_screenshot_url ? (
+
+                            <a
+                              href={inquiry.website}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="crm-website-screenshot-link"
+                            >
+                              <img
+                                src={`${inquiry.website_screenshot_url}?v=${inquiry.website_screenshot_updated_at || ''}`}
+                                alt={`${inquiry.business_name} website screenshot`}
+                                loading="lazy"
+                              />
+                            </a>
+
+                          ) : (
+
+                            <div className="crm-website-screenshot-placeholder">
+                              <Building2 size={28} />
+
+                              <span>
+                                Screenshot not captured yet
+                              </span>
+                            </div>
+
+                          )}
 
                         </div>
 
@@ -424,6 +445,27 @@ export default async function CommunityPartnerInquiriesPage({
                           >
                             Open Website
                           </a>
+
+                          <form
+                            action={
+                              captureInquiryWebsiteScreenshot
+                            }
+                          >
+                            <input
+                              type="hidden"
+                              name="inquiry_id"
+                              value={inquiry.id}
+                            />
+
+                            <button
+                              type="submit"
+                              className="crm-website-refresh"
+                            >
+                              {inquiry.website_screenshot_url
+                                ? 'Refresh Screenshot'
+                                : 'Capture Screenshot'}
+                            </button>
+                          </form>
 
                         </div>
 

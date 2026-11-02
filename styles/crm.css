@@ -4360,3 +4360,143 @@ a[href*="/organizations/"][href$="/edit"] {
   font-size: 11px;
   text-align: center;
 }
+
+
+/* ============================================================
+   INQUIRY WEBSITE SCREENSHOT
+   ============================================================ */
+
+.crm-website-preview-frame iframe {
+  display: none;
+}
+
+.crm-website-screenshot-link {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.crm-website-screenshot-link img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  transition: transform .18s ease;
+}
+
+.crm-website-screenshot-link:hover img {
+  transform: scale(1.015);
+}
+
+.crm-website-screenshot-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 8px;
+  height: 100%;
+  color: #8793a0;
+}
+
+.crm-website-screenshot-placeholder span {
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.crm-website-preview-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.crm-website-preview-footer form {
+  margin: 0;
+}
+
+.crm-website-refresh {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: #536779;
+  font-size: 9px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.crm-website-refresh:hover {
+  color: #10243e;
+  text-decoration: underline;
+}
+
+
+/* ============================================================
+   ORGANIZATION WEBSITE PREVIEW
+   ============================================================ */
+
+.crm-organization-website-preview
+.crm-panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+}
+
+.crm-organization-website-preview
+.crm-panel-header h3 {
+  margin-bottom: 3px;
+}
+
+.crm-organization-website-preview
+.crm-panel-header p {
+  margin: 0;
+  color: var(--crm-text-muted);
+  font-size: 11px;
+}
+
+.crm-organization-screenshot-wrap {
+  padding: 18px;
+}
+
+.crm-organization-screenshot-link {
+  display: block;
+  overflow: hidden;
+  width: 100%;
+  max-width: 720px;
+  height: 360px;
+  border: 1px solid var(--crm-border);
+  border-radius: 10px;
+  background: #eef1f4;
+  box-shadow:
+    0 3px 12px
+    rgba(0, 0, 0, .04);
+}
+
+.crm-organization-screenshot-link img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  transition:
+    transform .18s ease,
+    opacity .18s ease;
+}
+
+.crm-organization-screenshot-link:hover img {
+  transform: scale(1.01);
+  opacity: .96;
+}
+
+@media (max-width: 760px) {
+  .crm-organization-website-preview
+  .crm-panel-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .crm-organization-screenshot-link {
+    height: 240px;
+  }
+}

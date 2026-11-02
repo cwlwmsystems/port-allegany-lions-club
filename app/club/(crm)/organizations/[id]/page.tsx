@@ -329,7 +329,61 @@ export default async function OrganizationRecordPage({
           </section>
 
 
-          <section className="crm-panel">
+                    {organization.community_partner_website_screenshot_url && (
+            <section className="crm-panel crm-organization-website-preview">
+
+              <div className="crm-panel-header">
+                <div>
+                  <h3>Website Preview</h3>
+
+                  <p>
+                    Captured from the organization's website
+                  </p>
+                </div>
+
+                {organization.website && (
+                  <a
+                    href={organization.website}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="crm-button crm-button-secondary crm-button-small"
+                  >
+                    Open Website
+                  </a>
+                )}
+              </div>
+
+              <div className="crm-organization-screenshot-wrap">
+
+                {organization.website ? (
+                  <a
+                    href={organization.website}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="crm-organization-screenshot-link"
+                  >
+                    <img
+                      src={`${organization.community_partner_website_screenshot_url}?v=${organization.community_partner_website_screenshot_updated_at || ''}`}
+                      alt={`${organization.name} website preview`}
+                      loading="lazy"
+                    />
+                  </a>
+                ) : (
+                  <div className="crm-organization-screenshot-link">
+                    <img
+                      src={`${organization.community_partner_website_screenshot_url}?v=${organization.community_partner_website_screenshot_updated_at || ''}`}
+                      alt={`${organization.name} website preview`}
+                      loading="lazy"
+                    />
+                  </div>
+                )}
+
+              </div>
+
+            </section>
+          )}
+
+<section className="crm-panel">
 
             <div className="crm-panel-header">
               <h3>Outreach History</h3>
