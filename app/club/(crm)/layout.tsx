@@ -1,8 +1,10 @@
 import '@/styles/crm.css';
+import '@/styles/lions-ai.css';
 
 import { redirect } from 'next/navigation';
 
 import SidebarNav from '@/components/crm/sidebar-nav';
+import LionsAiPanel from '@/components/lions-ai/lions-ai-panel';
 
 import { createClient } from '@/lib/supabase/server';
 
@@ -109,6 +111,8 @@ export default async function CRMLayout({
         </div>
 
       </div>
+
+      <LionsAiPanel />
 
     </div>
   );
